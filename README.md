@@ -20,33 +20,79 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+- Create our Resources
+- Observe ICMP Traffic
+- Observe SSH Traffic
+- Observe DHCP Traffic
+- Observe DNS Traffic
+- Observe RDP Traffic
 
 <h2>Actions and Observations</h2>
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+1. Create our Resources
+In Azure
+	- create a Resource Group
+	- create a Windows 10 virtual machine with the resource group, just created
+	- create another virtual machine but with Linux (Ubuntu) and use the same resource group and virtual network
 
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+
+2. Observe ICMP Traffic
+	- Use RDP to connect to Windows 10 VM
+	- Install Wireshark
+	- Open wireshark and filter ICMP traffic only
+	- Get the private IP address of the Ubuntu VM and attempt to ping it from the Windowns 10 VM
+	- Observe the ping request and replies within wireshark
+	- Open command line or PowerShell and attempt to ping a public website, of your choice, and observe the traffic in WireShark
+	- Open the network security group in the Ubuntu VM and disable incoming (inbound) ICMP traffic
+	- In the Windows 10 VM, you'll observe the ICMP traffic in WireShark and ping activity in command line
+		- You'll notice that the firewall (NSG) is prohibiting the ICMP inbound traffic
+	- Re-enable the ICMP traffic by going back into the Ubuntu VM and enable the traffic through the Network Security Group
+	- Back in Windows 10 VM, you'll see the ICMP traffic is pinging in WireShark and command line
+	- You can stop the ping activity by pressing "ctrl-c"
 
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
+
+3. Observe SSH Traffic
+	- Go back to WireShark and filter for SSH traffic
+	- SSH into the Ubuntu VM by its private IP address
+		- Type commands into linux SSH like username, pwd, etc
+		- Type exit and press enter to close the SSH connection
+
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+4. Observe DHCP Traffic
+	- Filter for DHCP traffic only in WireShark
+	- Attemp to issue your Windows VM a new IP address by typing ipconfig/renew in the command line
+	- Observe the DHCP traffic appearing in WireShark
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+5. Observe DNS Traffic
+	- In WireShark filter DNS traffic
+	- In the Windows 10 VM use nslookup, in the command line, to lookup common website IP address are e.g. google.com
+		- Observe the DNS traffic in WireShark
+    
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>    
+
+6. Observe RDP Traffic
+	- Filter for RDP traffic in WireShark
+		- You can also type tcp.port==3389 instead of typing RDP
+	- Observe the traffic in WireShark
+		- You'll see the traffic is endless since it's constantly showing a live stream from one computer to another
+
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />

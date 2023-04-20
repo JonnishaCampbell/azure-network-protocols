@@ -36,7 +36,7 @@ In Azure
 	- create another virtual machine but with Linux (Ubuntu) and use the same resource group and virtual network
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/NL3aqMI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
 2. Observe ICMP Traffic
@@ -52,9 +52,16 @@ In Azure
 	- Re-enable the ICMP traffic by going back into the Ubuntu VM and enable the traffic through the Network Security Group
 	- Back in Windows 10 VM, you'll see the ICMP traffic is pinging in WireShark and the command line
 	- You can stop the ping activity by pressing "ctrl-c."
+<p>
+<img src="https://i.imgur.com/HSQQcn8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/4k6Sk1x.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+<p>
+<img src="https://i.imgur.com/6lAdQII.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
 3. Observe SSH Traffic
@@ -64,7 +71,7 @@ In Azure
 		- Type exit and press enter to close the SSH connection
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/g5MT6AI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
 4. Observe DHCP Traffic
@@ -73,7 +80,7 @@ In Azure
 	- Observe the DHCP traffic appearing in WireShark
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/OpgyITe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
 5. Observe DNS Traffic
@@ -82,17 +89,17 @@ In Azure
 		- Observe the DNS traffic in Wireshark
     
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/GWBPwom.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>    
 
 6. Observe RDP Traffic
 	- Filter for RDP traffic in Wireshark
 		- You can also type tcp.port==3389 instead of typing RDP
 	- Observe the traffic in Wireshark
-		- You'll see the traffic is endless since it's constantly showing a live stream from one computer to another
+		- You'll see the traffic is endless since it's constantly showing a live stream from the actual computer to the VM computer
 
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Bq9oEqB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
